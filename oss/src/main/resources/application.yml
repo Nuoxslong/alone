@@ -1,0 +1,16 @@
+server:
+  port: 6000
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: alone_dev
+    password: nuo_alone
+    url: jdbc:mysql://codegraffiti.cn:3306/alone?characterEncoding=UTF-8&useUnicode=true&useSSL=false
+  jpa:
+    show-sql: true
+    open-in-view: false
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://127.0.0.1:5000
