@@ -19,7 +19,7 @@ public class ResourceServerConfiguration {
         httpSecurity.csrf().disable();
         // 所有请求都进行拦截
         httpSecurity
-                .authorizeRequests().antMatchers("/auth").permitAll()
+                .authorizeRequests().antMatchers("/auth/**").permitAll()
                 .and()
                 .authorizeRequests().anyRequest().authenticated();
         // 关闭session

@@ -30,4 +30,13 @@ public class AuthController {
         HttpResponse response = request.execute();
         return R.ok(this.objectMapper.readValue(response.body(), AloneOauthToken.class));
     }
+
+    @GetMapping(value = "/refresh_token")
+    public R<AloneOauthToken> refreshToken(@RequestParam String token) throws JsonProcessingException {
+        HttpRequest request = HttpUtil.createPost("http://127.0.0.1:9999/oauth2/token");
+        request.basicAuth("alone_oss", "oss_admin");
+        request.form(Map.of("refresh_token", token, "grant_type", "refresh_token", "redirect_uri", "http://127.0.0.1:10010/auth"));
+        HttpResponse response = request.execute();
+        return R.ok(this.objectMapper.readValue(response.body(), AloneOauthToken.class));
+    }
 }
