@@ -35,7 +35,7 @@ import org.springframework.security.web.util.matcher.RequestMatcher;
 public class AuthorizationServerConfig {
 
     /**
-     * 自定义UserDetailsService 1
+     * 自定义UserDetailsService
      */
     private SecurityUserService userService;
 

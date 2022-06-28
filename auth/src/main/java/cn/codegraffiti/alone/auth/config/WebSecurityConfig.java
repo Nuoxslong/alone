@@ -31,7 +31,7 @@ public class WebSecurityConfig {
      * 2.Spring发送 GET 请求的响应以及 Set-cookie 标头，其中包含安全生成的XSRF令牌
      */
     @Bean
-    public SecurityFilterChain httpSecurityFilterChain(HttpSecurity httpSecurity) throws Exception {
+    public SecurityFilterChain loginSecurityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests.antMatchers("/login").permitAll()
