@@ -96,7 +96,7 @@ public class AuthorizationServerConfig {
 
     @Bean
     public JwtDecoder jwtDecoder() {
-        NimbusJwtDecoder result = NimbusJwtDecoder.withJwkSetUri("http://127.0.0.1:5000/oauth2/jwks")
+        NimbusJwtDecoder result = NimbusJwtDecoder.withJwkSetUri("http://127.0.0.1:9999/oauth2/jwks")
                 .build();
 
         OAuth2TokenValidator<Jwt> validator = new DelegatingOAuth2TokenValidator<>(
@@ -111,7 +111,7 @@ public class AuthorizationServerConfig {
      */
     @Bean
     public ProviderSettings providerSettings() {
-        return ProviderSettings.builder().issuer("http://127.0.0.1:5000").build();
+        return ProviderSettings.builder().issuer("http://127.0.0.1:9999").build();
     }
 
     @Autowired

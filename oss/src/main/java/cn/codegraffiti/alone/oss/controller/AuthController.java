@@ -17,9 +17,9 @@ public class AuthController {
 
     @GetMapping
     public R<Void> auth(@RequestParam String code) {
-        HttpRequest request = HttpUtil.createPost("localhost:5000/oauth2/token");
+        HttpRequest request = HttpUtil.createPost("localhost:9999/oauth2/token");
         request.basicAuth("alone_oss", "oss_admin");
-        request.form(Map.of("code", code, "grant_type", "authorization_code", "redirect_uri", "http://127.0.0.1:6000/auth"));
+        request.form(Map.of("code", code, "grant_type", "authorization_code", "redirect_uri", "http://127.0.0.1:10010/auth"));
         HttpResponse response = request.execute();
         System.out.println(response.body());
         return R.ok();
