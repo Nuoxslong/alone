@@ -53,7 +53,8 @@ public class AuthorizationServerConfig {
                 .userDetailsService(userService)
                 .authorizeRequests(authorizeRequests -> authorizeRequests.anyRequest().authenticated())
                 .csrf(csrf -> csrf.ignoringRequestMatchers(endpointsMatcher))
-                .apply(authorizationServerConfigurer);
+                .apply(authorizationServerConfigurer)
+        ;
         return http.formLogin(Customizer.withDefaults()).build();
     }
 

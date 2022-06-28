@@ -10,6 +10,7 @@
         <module>component</module>
         <module>component/core</module>
         <module>component/security</module>
+        <module>finance</module>
     </modules>
 
     <groupId>cn.codegraffiti</groupId>
