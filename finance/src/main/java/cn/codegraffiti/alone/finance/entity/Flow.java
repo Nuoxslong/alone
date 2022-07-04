@@ -16,7 +16,7 @@ public class Flow {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long userId;
+    private String user;
 
     @Enumerated(EnumType.STRING)
     private FlowType type;

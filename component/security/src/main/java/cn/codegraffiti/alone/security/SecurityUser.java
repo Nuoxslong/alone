@@ -10,7 +10,7 @@ public class SecurityUser {
     private SecurityUser() {
     }
 
-    public static String userInfo() {
+    public static String principal() {
         SecurityContext context = SecurityContextHolder.getContext();
         if (Objects.isNull(context)) {
             return null;

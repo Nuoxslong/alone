@@ -20,8 +20,7 @@ public class FlowController {
 
     @PostMapping
     public R<Void> tally(@RequestBody Flow flow) {
-        String s = SecurityUser.userInfo();
-        System.out.println(s);
+        flow.setUser(SecurityUser.principal());
         return this.flowService.tally(flow);
     }
 
