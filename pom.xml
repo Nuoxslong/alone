@@ -25,6 +25,9 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springboot.version>2.7.0</springboot.version>
+        <hutool.version>5.8.3</hutool.version>
+        <minio.version>8.4.2</minio.version>
+        <okhttp.version>4.10.0</okhttp.version>
     </properties>
 
     <dependencyManagement>

@@ -1,4 +1,4 @@
-package cn.codegraffiti.alone.oss.controller;
+package cn.codegraffiti.alone.auth.controller;
 
 import cn.codegraffiti.alone.core.R;
 import cn.codegraffiti.alone.security.domain.AloneOauthToken;
@@ -18,15 +18,15 @@ import java.util.Map;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/oauth2")
-public class AuthController {
+public class Oauth2AccessController {
 
     final ObjectMapper objectMapper;
 
     @GetMapping(value = "/access_token")
     public R<AloneOauthToken> callback(@RequestParam String code) throws JsonProcessingException {
         HttpRequest request = HttpUtil.createPost("http://127.0.0.1:9999/oauth2/token");
-        request.basicAuth("alone_oss", "oss_admin");
-        request.form(Map.of("code", code, "grant_type", "authorization_code", "redirect_uri", "http://127.0.0.1:10010/oauth2/access_token"));
+        request.basicAuth("alone", "admin");
+        request.form(Map.of("code", code, "grant_type", "authorization_code", "redirect_uri", "http://127.0.0.1:9999/oauth2/access_token"));
         HttpResponse response = request.execute();
         return R.ok(this.objectMapper.readValue(response.body(), AloneOauthToken.class));
     }
@@ -34,7 +34,7 @@ public class AuthController {
     @GetMapping(value = "/refresh_token")
     public R<AloneOauthToken> refreshToken(@RequestParam String token) throws JsonProcessingException {
         HttpRequest request = HttpUtil.createPost("http://127.0.0.1:9999/oauth2/token");
-        request.basicAuth("alone_oss", "oss_admin");
+        request.basicAuth("alone", "admin");
         request.form(Map.of("refresh_token", token, "grant_type", "refresh_token"));
         HttpResponse response = request.execute();
         return R.ok(this.objectMapper.readValue(response.body(), AloneOauthToken.class));

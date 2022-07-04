@@ -34,7 +34,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain loginSecurityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .authorizeRequests(authorizeRequests ->
-                        authorizeRequests.antMatchers("/login").permitAll()
+                        authorizeRequests.antMatchers("/login", "/oauth2/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 // 使用默认登录页面
