@@ -1,5 +1,6 @@
 package cn.codegraffiti.alone.oss.entity;
 
+import cn.codegraffiti.alone.core.enums.StateEnum;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -22,7 +23,7 @@ public class StorageManage {
 
     private Integer property;
 
-    private Integer state;
+    private StateEnum state;
 
     private LocalDateTime createTime;
 

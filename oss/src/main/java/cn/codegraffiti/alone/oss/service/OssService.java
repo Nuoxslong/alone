@@ -2,10 +2,10 @@ package cn.codegraffiti.alone.oss.service;
 
 import cn.codegraffiti.alone.core.AloneException;
 import cn.codegraffiti.alone.core.R;
+import cn.codegraffiti.alone.core.enums.StateEnum;
 import cn.codegraffiti.alone.oss.domain.StorageObject;
 import cn.codegraffiti.alone.oss.entity.StorageManage;
-import cn.codegraffiti.alone.oss.enums.StateEnum;
-import cn.codegraffiti.alone.oss.enums.storage.PropertyEnum;
+import cn.codegraffiti.alone.oss.enums.PropertyEnum;
 import cn.codegraffiti.alone.oss.repository.StorageManageRepository;
 import cn.hutool.crypto.digest.DigestUtil;
 import io.minio.DeleteObjectTagsArgs;
@@ -104,7 +104,7 @@ public class OssService {
         storageManage.setHash(object.getHash());
         storageManage.setName(object.getName());
         storageManage.setCreateTime(LocalDateTime.now());
-        storageManage.setState(StateEnum.DEF.getCode());
+        storageManage.setState(StateEnum.DEF);
         this.storageManageRepository.save(storageManage);
     }
 
