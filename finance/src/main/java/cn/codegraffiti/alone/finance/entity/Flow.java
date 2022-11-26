@@ -2,9 +2,9 @@ package cn.codegraffiti.alone.finance.entity;
 
 import cn.codegraffiti.alone.core.enums.StateEnum;
 import cn.codegraffiti.alone.finance.enums.FlowType;
+import jakarta.persistence.*;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
