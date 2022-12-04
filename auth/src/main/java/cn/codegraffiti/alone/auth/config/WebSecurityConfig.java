@@ -41,8 +41,6 @@ public class WebSecurityConfig {
                 .formLogin(withDefaults())
                 // 关闭 Spring Security CSRF保护
                 .csrf().disable()
-        // Spring Security CSRF保护
-        // .csrf(csrfToken -> csrfToken.csrfTokenRepository(new CookieCsrfTokenRepository()))
         ;
         return httpSecurity.build();
     }
