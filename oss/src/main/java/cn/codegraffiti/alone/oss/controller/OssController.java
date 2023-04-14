@@ -2,12 +2,12 @@ package cn.codegraffiti.alone.oss.controller;
 
 import cn.codegraffiti.alone.core.R;
 import cn.codegraffiti.alone.oss.service.OssService;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.compress.utils.IOUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 

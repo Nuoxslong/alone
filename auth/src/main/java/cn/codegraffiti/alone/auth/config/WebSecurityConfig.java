@@ -33,16 +33,14 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain loginSecurityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-                .authorizeRequests(authorizeRequests ->
-                        authorizeRequests.antMatchers("/login", "/oauth2/**").permitAll()
+                .authorizeHttpRequests(authorizeRequests ->
+                        authorizeRequests.requestMatchers("/login", "/oauth2/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 // 使用默认登录页面
                 .formLogin(withDefaults())
                 // 关闭 Spring Security CSRF保护
                 .csrf().disable()
-        // Spring Security CSRF保护
-        // .csrf(csrfToken -> csrfToken.csrfTokenRepository(new CookieCsrfTokenRepository()))
         ;
         return httpSecurity.build();
     }
