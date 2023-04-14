@@ -13,7 +13,7 @@
     <artifactId>auth</artifactId>
 
     <properties>
-        <authorization-server.version>1.0.0</authorization-server.version>
+        <authorization-server.version>1.0.1</authorization-server.version>
     </properties>
 
     <dependencies>
