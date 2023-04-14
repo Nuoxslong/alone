@@ -3,8 +3,8 @@
 GET http://127.0.0.1:9999/oauth2/authorize
 params response_type=code
 scope=read
-client_id=alone_oss
-redirect_uri=http://127.0.0.1:10010/auth
+client_id=alone
+redirect_uri=http://127.0.0.1:9999/oauth2/access_token
 
 #### 获取token
 
