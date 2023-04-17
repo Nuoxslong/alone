@@ -7,8 +7,6 @@ import cn.codegraffiti.alone.security.properties.ComponentSecurityProperties;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,8 +17,6 @@ import java.util.Map;
 @Slf4j
 @RequiredArgsConstructor
 public class AuthEndpoint {
-
-    final ObjectMapper objectMapper;
 
     final ComponentSecurityProperties properties;
 

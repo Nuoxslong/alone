@@ -1,17 +1,24 @@
 package cn.codegraffiti.alone.core.utils;
 
-import cn.hutool.extra.spring.SpringUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 
-import java.util.Objects;
-
-public class JsonUtil {
+@Component
+public class JsonUtil implements ApplicationContextAware {
 
     static ObjectMapper objectMapper = null;
 
     private JsonUtil() {
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        objectMapper = applicationContext.getBean(ObjectMapper.class);
     }
 
     /**
@@ -35,7 +42,6 @@ public class JsonUtil {
      * @throws RuntimeException 如果 JSON 解析出错，将抛出 RuntimeException 异常
      */
     public static <T> T toBean(String json, Class<T> clazz) {
-        lazyLoad();
         return handleJsonProcessingException(() -> objectMapper.readValue(json, clazz));
     }
 
@@ -49,15 +55,8 @@ public class JsonUtil {
      * @throws RuntimeException 如果 JSON 解析出错，将抛出 RuntimeException 异常
      */
     public static <T> T toBean(String json, TypeReference<T> typeReference) {
-        lazyLoad();
         return handleJsonProcessingException(() -> objectMapper.readValue(json, typeReference));
 
-    }
-
-    private static void lazyLoad() {
-        if (Objects.isNull(objectMapper)) {
-            objectMapper = SpringUtil.getBean(ObjectMapper.class);
-        }
     }
 
     /**
