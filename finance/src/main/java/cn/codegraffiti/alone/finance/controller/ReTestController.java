@@ -18,9 +18,6 @@ public class ReTestController {
                     "id":"1"
                 }
                 """;
-        if (str.length() != 1) {
-            throw new NullPointerException("");
-        }
         Flow flow = JsonUtil.toBean(str, Flow.class);
         return R.ok(flow.getId());
     }
