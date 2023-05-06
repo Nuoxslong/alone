@@ -9,3 +9,5 @@ spring:
   jpa:
     show-sql: true
     open-in-view: false
+  jackson:
+    time-zone: GMT+8
