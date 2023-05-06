@@ -7,6 +7,7 @@ import cn.codegraffiti.alone.finance.query.FlowQuery;
 import cn.codegraffiti.alone.finance.repository.FlowRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -38,7 +39,7 @@ public class FlowService {
         }
 
         Example<Flow> example = Example.of(flow);
-        List<Flow> list = this.flowRepository.findAll(example);
+        List<Flow> list = this.flowRepository.findAll(example, Sort.sort(Flow.class).by(Flow::getCreateTime).descending());
         return R.ok(list);
     }
 }

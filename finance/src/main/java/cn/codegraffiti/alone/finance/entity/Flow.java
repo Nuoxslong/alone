@@ -2,6 +2,8 @@ package cn.codegraffiti.alone.finance.entity;
 
 import cn.codegraffiti.alone.core.enums.StateEnum;
 import cn.codegraffiti.alone.finance.enums.FlowType;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
