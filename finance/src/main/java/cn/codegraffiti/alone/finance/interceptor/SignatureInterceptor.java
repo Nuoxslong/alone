@@ -14,15 +14,15 @@ public class SignatureInterceptor implements AsyncHandlerInterceptor {
     @Override
     public boolean preHandle(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull Object handler) throws Exception {
         // 拦截所有为带有指定请求头的请求
-        String signature = request.getHeader("signature");
-
-        if (ObjectUtils.isEmpty(signature)) {
-            throw new AloneException("Unknown anomaly");
-        }
-
-        if (!"EFB5803993A803FE4414FA2CA001A84F".equals(signature)) {
-            throw new AloneException("Go away");
-        }
+        // String signature = request.getHeader("signature");
+        //
+        // if (ObjectUtils.isEmpty(signature)) {
+        //     throw new AloneException("Unknown anomaly");
+        // }
+        //
+        // if (!"EFB5803993A803FE4414FA2CA001A84F".equals(signature)) {
+        //     throw new AloneException("Go away");
+        // }
 
         return AsyncHandlerInterceptor.super.preHandle(request, response, handler);
     }
