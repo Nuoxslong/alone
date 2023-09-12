@@ -17,6 +17,11 @@ public class FlowController {
 
     final FlowService flowService;
 
+    @GetMapping(value = "/last")
+    public R<Flow> last() {
+        return R.ok(this.flowService.last());
+    }
+
     @PostMapping
     public R<Void> tally(@RequestBody Flow flow) {
         flow.setUser("user");

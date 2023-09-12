@@ -48,4 +48,8 @@ public class FlowService {
         log.info("time test: {}", list.get(0).getCreateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")));
         return R.ok(list);
     }
+
+    public Flow last() {
+        return this.flowRepository.last();
+    }
 }

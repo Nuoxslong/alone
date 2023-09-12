@@ -10,6 +10,19 @@
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <body>
 <div class="container">
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">lastTime</span>
+        <input disabled id="lastTime" type="text" class="form-control" aria-label="Username"
+               aria-describedby="basic-addon1">
+        <span class="input-group-text" id="basic-addon2">amount</span>
+        <input disabled id="lastAmount" type="text" class="form-control" aria-label="Username"
+               aria-describedby="basic-addon1">
+        <span class="input-group-text" id="basic-addon3">remark</span>
+        <input disabled id="lastRemark" type="text" class="form-control" aria-label="Username"
+               aria-describedby="basic-addon1">
+    </div>
+
     <form method="post" onsubmit="return false">
         <div class="mb-3">
             <label for="user"></label>
@@ -47,8 +60,7 @@
 </body>
 
 <script src="/js/jquery-3.7.1.min.js"></script>
-<script src="/js/popper.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
 <script>
 
     function TypeDropDown(ele) {
@@ -81,6 +93,7 @@
 
     $(document).ready(function () {
         new TypeDropDown($("#typeDropdown"));
+        last();
     });
 
     function flow() {
@@ -101,6 +114,21 @@
             success: function (result) {
                 console.log("result is :" + result)
                 location.reload();
+            }
+        })
+    }
+
+    const Flow = {id: "", user: "", type: "", amount: "", remark: "", createTime: ""};
+
+    function last() {
+        $.ajax({
+            type: "get",
+            url: "/flow/last",
+            contentType: "application/json",
+            success: function (result) {
+                $("#lastTime").val(result.data.createTime);
+                $("#lastAmount").val(result.data.amount);
+                $("#lastRemark").val(result.data.remark);
             }
         })
     }

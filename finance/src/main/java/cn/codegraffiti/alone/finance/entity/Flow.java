@@ -30,6 +30,7 @@ public class Flow {
     @Enumerated(EnumType.STRING)
     private StateEnum state;
 
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private LocalDateTime createTime;
 
 }
