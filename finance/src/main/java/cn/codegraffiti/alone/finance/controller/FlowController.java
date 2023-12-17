@@ -1,6 +1,6 @@
 package cn.codegraffiti.alone.finance.controller;
 
-import cn.codegraffiti.alone.core.R;
+import cn.codegraffiti.alone.common.R;
 import cn.codegraffiti.alone.finance.entity.Flow;
 import cn.codegraffiti.alone.finance.query.FlowQuery;
 import cn.codegraffiti.alone.finance.service.FlowService;

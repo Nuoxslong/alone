@@ -1,12 +1,13 @@
 package cn.codegraffiti.alone.oss.service;
 
-import cn.codegraffiti.alone.core.AloneException;
-import cn.codegraffiti.alone.core.R;
-import cn.codegraffiti.alone.core.enums.StateEnum;
+import cn.codegraffiti.alone.common.AloneException;
+import cn.codegraffiti.alone.common.R;
+import cn.codegraffiti.alone.common.enums.StateEnum;
 import cn.codegraffiti.alone.oss.domain.StorageObject;
 import cn.codegraffiti.alone.oss.entity.StorageManage;
 import cn.codegraffiti.alone.oss.enums.PropertyEnum;
 import cn.codegraffiti.alone.oss.repository.StorageManageRepository;
+import com.google.common.hash.Hashing;
 import io.minio.DeleteObjectTagsArgs;
 import io.minio.GetObjectArgs;
 import io.minio.MinioClient;
@@ -14,6 +15,7 @@ import io.minio.PutObjectArgs;
 import io.minio.errors.MinioException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.bouncycastle.crypto.digests.MD5Digest;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -87,7 +89,7 @@ public class OssService {
             object.setSize(file.getSize());
             object.setInputStream(file.getInputStream());
             object.setProperty(PropertyEnum.TEMP.getCode());
-            object.setHash(DigestUtil.md5Hex(file.getInputStream()));
+            object.setHash(Hashing.sha256().hashBytes(file.getInputStream().readAllBytes()).toString());
             return object;
         } catch (Exception e) {
             throw new AloneException("build storage object error ", e);

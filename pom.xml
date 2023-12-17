@@ -8,7 +8,7 @@
         <module>auth</module>
         <module>oss</module>
         <module>component</module>
-        <module>component/core</module>
+        <module>component/common</module>
         <module>component/security</module>
         <module>finance</module>
     </modules>

@@ -1,7 +1,7 @@
 package cn.codegraffiti.alone.security;
 
 
-import cn.codegraffiti.alone.core.R;
+import cn.codegraffiti.alone.common.R;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

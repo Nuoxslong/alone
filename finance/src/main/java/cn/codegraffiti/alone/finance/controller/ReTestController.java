@@ -1,7 +1,7 @@
 package cn.codegraffiti.alone.finance.controller;
 
-import cn.codegraffiti.alone.core.R;
-import cn.codegraffiti.alone.core.utils.JsonUtil;
+import cn.codegraffiti.alone.common.R;
+import cn.codegraffiti.alone.common.utils.JsonUtil;
 import cn.codegraffiti.alone.finance.entity.Flow;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

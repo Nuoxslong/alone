@@ -1,4 +1,4 @@
-package cn.codegraffiti.alone.core.enums;
+package cn.codegraffiti.alone.common.enums;
 
 import lombok.Getter;
 
