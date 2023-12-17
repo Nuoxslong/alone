@@ -7,7 +7,6 @@ import cn.codegraffiti.alone.oss.domain.StorageObject;
 import cn.codegraffiti.alone.oss.entity.StorageManage;
 import cn.codegraffiti.alone.oss.enums.PropertyEnum;
 import cn.codegraffiti.alone.oss.repository.StorageManageRepository;
-import cn.hutool.crypto.digest.DigestUtil;
 import io.minio.DeleteObjectTagsArgs;
 import io.minio.GetObjectArgs;
 import io.minio.MinioClient;
