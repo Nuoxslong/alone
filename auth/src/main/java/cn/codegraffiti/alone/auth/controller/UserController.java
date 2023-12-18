@@ -1,6 +1,6 @@
 package cn.codegraffiti.alone.auth.controller;
 
-import cn.codegraffiti.alone.core.R;
+import cn.codegraffiti.alone.common.R;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -1,4 +1,4 @@
-package cn.codegraffiti.alone.core;
+package cn.codegraffiti.alone.common;
 
 public class AloneException extends RuntimeException {
 

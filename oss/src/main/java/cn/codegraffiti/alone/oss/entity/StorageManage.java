@@ -1,6 +1,6 @@
 package cn.codegraffiti.alone.oss.entity;
 
-import cn.codegraffiti.alone.core.enums.StateEnum;
+import cn.codegraffiti.alone.common.enums.StateEnum;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
