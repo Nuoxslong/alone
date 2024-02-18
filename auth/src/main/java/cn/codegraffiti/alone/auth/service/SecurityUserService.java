@@ -5,11 +5,14 @@ import cn.codegraffiti.alone.auth.entity.User;
 import cn.codegraffiti.alone.auth.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
+import org.springframework.security.config.authentication.PasswordEncoderParser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -29,7 +32,7 @@ public class SecurityUserService implements UserDetailsService {
         Example<User> example = Example.of(queryEntity);
         Optional<User> userOptional = this.userRepository.findOne(example);
         if (userOptional.isEmpty()) {
-            return null;
+            throw new UsernameNotFoundException(username);
         }
         User user = userOptional.get();
         List<GrantedAuthority> authorities = new ArrayList<>(1);
