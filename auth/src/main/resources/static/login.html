@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .form-wrapper {
+            width: 100%;
+            max-width: 360px;
+            background-color: #fff;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin: 0 0 24px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 4px;
+            margin-left: 12px;
+            text-align: left;
+        }
+
+        .form-group input {
+            width: 85%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.2s ease-in-out;
+        }
+
+        .form-group input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #3494b3;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #4b45a0;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="form-wrapper">
+        <h2>Login</h2>
+
+        <div style="color: #dddddd"> ------ Welcome ------ </div>
+
+        <form action="/login" method="post">
+            <div class="form-group">
+                <label for="username"></label>
+                <input type="text" id="username" name="username" autocomplete="off" placeholder="admin">
+            </div>
+            <div class="form-group">
+                <label for="password"></label>
+                <input type="password" id="password" name="password" autocomplete="off" placeholder="alone">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login">
+            </div>
+            <div id="errorMessage" class="error-message"></div>
+        </form>
+    </div>
+</div>
+
+<script>
+</script>
+</body>
+</html>

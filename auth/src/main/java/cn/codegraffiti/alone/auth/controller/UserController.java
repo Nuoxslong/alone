@@ -16,6 +16,7 @@ public class UserController {
     public R<Void> userInfo() {
         SecurityContext context = SecurityContextHolder.getContext();
         Authentication authentication = context.getAuthentication();
+        System.out.println(authentication.getDetails());
         return R.ok();
     }
 
