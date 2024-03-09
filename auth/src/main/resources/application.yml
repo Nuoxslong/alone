@@ -5,7 +5,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
-    url: jdbc:mysql://127.0.0.1:3306/alone?characterEncoding=UTF-8&useUnicode=true&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/alone?characterEncoding=UTF-8&useUnicode=true
     hikari:
       max-lifetime: 120000
   jpa:

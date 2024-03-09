@@ -15,11 +15,11 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests((authorize) -> authorize.anyRequest().authenticated())
+        http.authorizeHttpRequests((authorize) -> authorize
+                        .requestMatchers("/favicon.ico").permitAll()
+                        .anyRequest().authenticated())
                 .httpBasic(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
-
                 // 自定义登录页
                 .formLogin((form) -> form
                         .loginPage("/login.html")
